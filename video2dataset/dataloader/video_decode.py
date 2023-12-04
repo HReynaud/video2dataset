@@ -109,7 +109,9 @@ class VideoDecorder(AbstractVideoDecoder):
         else:
             frame_start = self.prng.choice(int(len(reader)) - int(n_frames * stride), 1).item()
         # only decode the frames which are actually needed
-        frames = reader.get_batch(np.arange(frame_start, frame_start + n_frames * stride, stride).tolist())
+        indices = np.arange(frame_start, frame_start + n_frames * stride, stride)
+        indices = indices[indices < len(reader)]
+        frames = reader.get_batch(indices.tolist())
 
         # TODO: maybe its useful to inform the user which frmaes are padded
         # can just output first_pad_index or a mask or something
