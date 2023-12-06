@@ -132,6 +132,7 @@ class VideoResizer(PRNGMixin):
                     tuple(reversed(resize_size)),
                     interpolation=cv2.INTER_LANCZOS4,
                 )
+                frame = np.clip(frame, 0.0, 255.0) # avoid out-of-range values from INTER_LANCZOS4 interpolation
 
             if self.crop_size is not None:
                 x_ = reference[1] - int(round(self.crop_size[1] / 2))
