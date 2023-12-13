@@ -105,7 +105,7 @@ def get_video_dataset(
     if isinstance(urls, str):
         urls = [urls]
     # only use webdataset when using pipe
-    use_torchdata = False #not urls[0].replace(" ", "").startswith("pipe:")
+    use_torchdata = not urls[0].replace(" ", "").startswith("pipe:")
 
     if not use_torchdata:
         urls = urls[0]
