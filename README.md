@@ -1,3 +1,7 @@
+# TL;DR
+To download webvid, you need to clone this repo and a csv file (ex. results_2M_train.csv). 
+Once you have both, plug the file into this script: https://github.com/HReynaud/video2dataset/blob/main/examples/download_webvid.sh and the download should start.
+
 # video2dataset
 [![pypi](https://img.shields.io/pypi/v/video2dataset.svg)](https://pypi.python.org/pypi/video2dataset)
 
